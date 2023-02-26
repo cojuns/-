@@ -1,0 +1,155 @@
+
+:root { /*css에서도 변수를 사용해서 유지보수편하게 변수마다 색 변경 가능 */
+    --text-color: #333;
+    --background-color: #ffffffeb;
+    --accent-color :#333;
+}
+
+body {
+    font-family: 'Gajraj One', cursive;
+    background-color: #ffffffeb;
+
+    padding: 0; /*스페이싱 제거 */
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+.navbar {
+    display: flex;  /* navbar 메뉴들 한줄로 정렬   */
+    justify-content: space-between; /* 스페이스를 박스들 사이사이에 넣음 */
+    align-items: center; /* 수직방향 가운데 정렬 */
+    padding: 8px 12px;
+}
+
+.navbar_logo {
+    
+   
+
+    font-size: 24px;    
+    
+    color:var(--text-color)
+
+    
+
+}
+
+.navbar_logo i { /*로고 i태그 색 변경 */
+    color: var(--accent-color)
+}
+
+.navbar_menu {
+   display: flex; /*가로로 변경 */
+   list-style: none; /* 리스트 꾸밈새 제거 ( 자동으로 생성되는 꾸밈새 )  */
+   padding-left: 0; /* 앞에 자동으로 생성된 패딩 값 제거*/
+}
+.navbar_menu li {
+    padding: 8px 12px; /*메뉴버튼 크기와 사이사이 간격 조절 */
+} 
+
+.navbar_menu a:hover {
+    background-color: #ddd;
+    color: #333;
+    border-radius: 4px;
+}
+
+.navbar_icons {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    color: var(--text-color)
+}
+
+.navbar_icons li {
+    padding: 8px 12px;
+}
+
+.navbar_toggleBtn { /*토글 버튼 위치 지정 */
+    display: none;
+    position: absolute; /*흐름에서 나가기 */
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color)
+}
+
+/* 밑에 a테그 4개 css 입력 시 보라색 흔적 안남기게 설정 */
+a:link { 
+
+    color: #333;
+   
+    text-decoration: none;
+   
+   }
+   
+   
+   
+a:visited {
+   
+    color: #333;
+   
+    text-decoration: none;
+   
+   }
+   
+   
+   
+a:hover {
+   
+    color: #333;
+   
+    text-decoration: none;
+   
+   }
+   
+   
+   
+a:active {
+   
+    color: #333;
+   
+    text-decoration: none;
+   
+   }
+   
+   
+
+
+
+
+
+@media screen and (max-width:768px) { /*레이아웃 반응형으로 */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar_menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar_menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar_icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar_toggleBtn { /*페이지 사이즈가 작아질때만 토글버튼 생성 */
+        display: block;
+    }
+
+    .navbar_menu.active, /* 자바스크립트 연결  */
+    .navbar_icons.active {
+        display: flex;
+    }
+}
+
